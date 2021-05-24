@@ -1,12 +1,22 @@
 import 'package:figmaStaff/contents/baza.dart';
+import 'package:figmaStaff/contents/baza_list.dart';
+import 'package:figmaStaff/screens/ListOfEmployees.dart';
 import 'package:figmaStaff/styles/images.dart';
 import 'package:figmaStaff/styles/textStyles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
-class CallPhone extends StatelessWidget {
-  const CallPhone({Key key}) : super(key: key);
+EmployeeList list = new EmployeeList();
 
+class CallPhone extends StatefulWidget {
+  final int index;
+  CallPhone({Key key, this.index}) : super(key: key);
+
+  @override
+  _CallPhoneState createState() => _CallPhoneState();
+}
+
+class _CallPhoneState extends State<CallPhone> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,14 +64,24 @@ class CallPhone extends StatelessWidget {
                   height: 13,
                 ),
                 Text(
-                  "Жыпаркулов Мырзабек\nЖыпаркулович",
+                  "Жапаров Жапар\nЖапарович",
                   style: TaskTextStyle.regular16,
                 ),
               ],
             ),
           ),
-          Divides(),
-          Container(height: 207, child: ListView(children: scralllist))
+          SizedBox(
+            height: 17,
+          ),
+          Container(
+            height: 190,
+            child: ListView(
+              children: [
+                for (int i = 0; i < list.employeesList.length; i++)
+                  phoneScrollOfButton(list, i, context),
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -69,7 +89,7 @@ class CallPhone extends StatelessWidget {
 }
 
 _callNumber() async {
-  const number = '996556335576'; //set the number here
+  const number = '0554160500'; //set the number here
   bool res = await FlutterPhoneDirectCaller.callNumber(number);
 }
 
@@ -80,67 +100,52 @@ void _settingModalBottomSheet(context) {
       ),
       context: context,
       builder: (BuildContext bc) {
-        return CallPhone();
+        return CallPhone(
+          index: index,
+        );
       });
 }
 
-List<Widget> scralllist = [
-  FirstScroll(),
-  FirstScroll(),
-  FirstScroll(),
-  FirstScroll(),
-  FirstScroll(),
-  FirstScroll(),
-  FirstScroll(),
-  FirstScroll(),
-  FirstScroll(),
-];
-
-class FirstScroll extends StatelessWidget {
-  const FirstScroll({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          child: Material(
-            color: Colors.white,
-            child: InkWell(
-              onTap: () {
-                _callNumber();
-              },
-              child: Container(
-                height: 64,
-                width: MediaQuery.of(context).size.width,
-                padding: EdgeInsets.symmetric(horizontal: 23),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Телефон основной",
-                          style: TaskTextStyle.normal12,
-                        ),
-                        Text("+996 556 335 576",
-                            style: TaskTextStyle.regular16),
-                      ],
-                    ),
-                    Image.asset(
-                      ImagesPersons.phone,
-                      height: 20,
-                    ),
-                  ],
-                ),
+Widget phoneScrollOfButton(EmployeeList list, int index, BuildContext context) {
+  return Column(
+    children: [
+      Container(
+        child: Material(
+          color: Colors.white,
+          child: InkWell(
+            onTap: () {
+              _callNumber();
+            },
+            child: Container(
+              height: 64,
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.symmetric(horizontal: 23),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Телефон основной",
+                        style: TaskTextStyle.normal12,
+                      ),
+                      Text(list.employeesList[index].phone1,
+                          style: TaskTextStyle.regular16),
+                    ],
+                  ),
+                  Image.asset(
+                    ImagesPersons.phone,
+                    height: 20,
+                  ),
+                ],
               ),
             ),
           ),
         ),
-        Divides(),
-      ],
-    );
-  }
+      ),
+      Divides(),
+    ],
+  );
 }

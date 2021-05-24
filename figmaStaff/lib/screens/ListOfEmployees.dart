@@ -1,12 +1,12 @@
-import 'package:figmaStaff/contents/baza.dart';
-import 'package:figmaStaff/styles/images.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:figmaStaff/contents/scrall_all_employees.dart';
 import 'package:figmaStaff/styles/colors.dart';
 import 'package:figmaStaff/styles/textStyles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'detailedInformation.dart';
+
+int index;
 
 class Employers extends StatelessWidget {
   const Employers({Key key}) : super(key: key);
@@ -43,8 +43,13 @@ class Employers extends StatelessWidget {
                         hintStyle: TaskTextStyle.mini16,
                         prefixIcon: Icon(Icons.search),
                         filled: true,
-                        fillColor: Color(0xffE8E8E8),
+                        fillColor: Colors.grey[400],
                         enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Color(0xffE8E8E8), width: 0.5),
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        focusedBorder: OutlineInputBorder(
                           borderSide:
                               BorderSide(color: Color(0xffE8E8E8), width: 0.5),
                           borderRadius: BorderRadius.circular(15),
@@ -68,9 +73,13 @@ class Employers extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(left: 20, top: 14, bottom: 14),
               child: ListView(
-                  scrollDirection: Axis.horizontal, children: scralllistPhoto),
+                scrollDirection: Axis.horizontal,
+                children: [
+                  for (int i = 0; i < list.employeesList.length; i++)
+                    buildCircleAvatar(list, i, context),
+                ],
+              ),
             ),
-
             Container(
               padding: EdgeInsets.only(left: 20),
               child: Text(
@@ -78,141 +87,25 @@ class Employers extends StatelessWidget {
                 style: TaskTextStyle.bold16.copyWith(color: ColorsText.black),
               ),
             ),
-            // SizedBox(
-            //   height: 10,
-            // ),
             Container(
               height: 87,
               width: MediaQuery.of(context).size.width,
               padding: EdgeInsets.only(left: 20, top: 14, bottom: 14),
               child: ListView(
-                  scrollDirection: Axis.horizontal, children: scralllistPhoto),
+                scrollDirection: Axis.horizontal,
+                children: [
+                  for (int i = 0; i < list.employeesList.length; i++)
+                    buildCircleAvatar(list, i, context),
+                ],
+              ),
             ),
             SizedBox(
               height: 16,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Все сотрудники",
-                    style: TaskTextStyle.bold16,
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DetailedInformation()));
-                    },
-                    child: Container(
-                      height: 64,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DetailedInformation()));
-                    },
-                    child: Container(
-                      height: 64,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DetailedInformation()));
-                    },
-                    child: Container(
-                      height: 64,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => DetailedInformation()));
-                    },
-                    child: Container(
-                      height: 64,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.white),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                ],
-              ),
-            )
+            Scrall_all_employees(),
           ],
         ),
       ),
     );
   }
 }
-
-List<Widget> scralllistPhoto = [
-  Image.asset(ImagesPersons.myrsabek),
-  SizedBox(
-    width: 19,
-  ),
-  Image.asset(ImagesPersons.nazarbaev),
-  SizedBox(
-    width: 19,
-  ),
-  Image.asset(ImagesPersons.bakiev),
-  SizedBox(
-    width: 19,
-  ),
-  Image.asset(ImagesPersons.rasul),
-  SizedBox(
-    width: 19,
-  ),
-  Image.asset(ImagesPersons.myrsabek),
-  SizedBox(
-    width: 19,
-  ),
-  Image.asset(ImagesPersons.myrsabek),
-  SizedBox(
-    width: 19,
-  ),
-  Image.asset(ImagesPersons.myrsabek),
-  SizedBox(
-    width: 19,
-  ),
-  Image.asset(ImagesPersons.myrsabek),
-];

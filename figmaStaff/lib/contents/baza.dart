@@ -3,6 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailedDescription {
+  String image;
+  String name;
+  String surname;
+  String duty;
   String direction;
   String department;
   String email;
@@ -11,8 +15,12 @@ class DetailedDescription {
   String phone2;
   String phone3;
 
-  DetailedDescription(
-      direction, department, email, dateOfbirth, phone1, phone2, phone3) {
+  DetailedDescription(image, name, surname, duty, direction, department, email,
+      dateOfbirth, phone1, phone2, phone3) {
+    this.image = image;
+    this.name = name;
+    this.surname = surname;
+    this.duty = duty;
     this.direction = direction;
     this.department = department;
     this.email = email;
