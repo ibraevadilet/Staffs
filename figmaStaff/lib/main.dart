@@ -1,4 +1,4 @@
-import 'package:figmaStaff/screens/ListOfEmployees.dart';
+import 'package:figmaStaff/screens/splash_screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: "FigmaStaff",
         debugShowCheckedModeBanner: false,
-        home: Employers(),
+        home: SplashScreen(),
       ),
     );
   }

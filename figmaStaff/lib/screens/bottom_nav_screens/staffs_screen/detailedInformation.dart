@@ -1,7 +1,7 @@
 import 'package:figmaStaff/contents/baza.dart';
 import 'package:figmaStaff/contents/baza_list.dart';
 import 'package:figmaStaff/contents/names.dart';
-import 'package:figmaStaff/screens/ListOfEmployees.dart';
+import 'package:figmaStaff/contents/show_modal_bottom.dart';
 import 'package:figmaStaff/styles/colors.dart';
 import 'package:figmaStaff/styles/images.dart';
 import 'package:figmaStaff/styles/textStyles.dart';
@@ -139,6 +139,7 @@ class _DatailedInformationState extends State<DatailedInformation> {
                           ),
                         ),
                         Divides(),
+                        ShowModalBottom(),
                       ],
                     ),
                   ],

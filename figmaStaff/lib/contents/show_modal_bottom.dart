@@ -1,4 +1,4 @@
-import 'package:figmaStaff/screens/call_screen.dart';
+import 'package:figmaStaff/screens/bottom_nav_screens/staffs_screen/call_screen.dart';
 import 'package:figmaStaff/styles/images.dart';
 import 'package:figmaStaff/styles/textStyles.dart';
 import 'package:flutter/cupertino.dart';

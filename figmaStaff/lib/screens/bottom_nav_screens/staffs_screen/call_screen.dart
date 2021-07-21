@@ -1,10 +1,12 @@
 import 'package:figmaStaff/contents/baza.dart';
 import 'package:figmaStaff/contents/baza_list.dart';
-import 'package:figmaStaff/screens/ListOfEmployees.dart';
+
 import 'package:figmaStaff/styles/images.dart';
 import 'package:figmaStaff/styles/textStyles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+
+import 'ListOfEmployees.dart';
 
 EmployeeList list = new EmployeeList();
 

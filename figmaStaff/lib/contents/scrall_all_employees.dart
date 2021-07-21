@@ -1,4 +1,5 @@
-import 'package:figmaStaff/screens/detailedInformation.dart';
+import 'package:figmaStaff/screens/bottom_nav_screens/staffs_screen/detailedInformation.dart';
+
 import 'package:figmaStaff/styles/images.dart';
 import 'package:figmaStaff/styles/textStyles.dart';
 import 'package:flutter/cupertino.dart';
@@ -24,7 +25,7 @@ class Scrall_all_employees extends StatelessWidget {
             height: 16,
           ),
           Container(
-            height: 429,
+            height: 373,
             child: ListView(
               children: [
                 for (int i = 0; i < list.employeesList.length; i++)

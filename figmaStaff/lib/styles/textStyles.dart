@@ -25,16 +25,34 @@ class TaskTextStyle {
       fontSize: 16,
       color: ColorsText.black);
 
+  static TextStyle normal24 = TextStyle(
+      fontFamily: normal,
+      fontWeight: FontWeight.w500,
+      fontSize: 24,
+      color: ColorsText.black);
+
   static TextStyle regular20 = TextStyle(
       fontFamily: regular,
       fontWeight: FontWeight.w700,
       fontSize: 20,
       color: ColorsText.black);
 
+  static TextStyle regular14 = TextStyle(
+      fontFamily: regular,
+      fontWeight: FontWeight.w700,
+      fontSize: 14,
+      color: ColorsText.black);
+
   static TextStyle normal12 = TextStyle(
       fontFamily: normal,
       fontWeight: FontWeight.w500,
       fontSize: 12,
+      color: ColorsText.grey);
+
+  static TextStyle normal14 = TextStyle(
+      fontFamily: normal,
+      fontWeight: FontWeight.w500,
+      fontSize: 14,
       color: ColorsText.grey);
 
   static TextStyle regular16 = TextStyle(
